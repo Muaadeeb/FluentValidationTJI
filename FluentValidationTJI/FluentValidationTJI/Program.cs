@@ -1,3 +1,5 @@
+using System.Reflection;
+using FluentValidation.AspNetCore;
 using FluentValidationTJI.DbContexts;
 using FluentValidationTJI.Managers;
 using FluentValidationTJI.Managers.Interfaces;
@@ -12,7 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IAlphaManager, AlphaManager>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddFluentValidation( x => x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
