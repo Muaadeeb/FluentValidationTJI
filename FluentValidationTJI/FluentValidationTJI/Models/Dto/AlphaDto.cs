@@ -33,7 +33,7 @@ public class AlphaDto
 
     public DateTime? DynamicEffectiveDate { get; set; }
 
-    public SomeString[]? SomeString { get; set; }
+    public SomeString[]? SampleArrayString { get; set; }
 }
 
-public record SomeString(string someString);
+public record SomeString(string SampleString);

@@ -28,7 +28,7 @@ namespace FluentValidationTJI.Validators
         public AlphaDtoComplexValidator()
         {
             RuleFor(x => x.ChangeReason).Must(y => y?.ToLower().Contains("abc") == true).WithMessage("abc!");
-            RuleForEach(y => y.SomeString).SetValidator(new SomeStringValidator());
+            RuleForEach(y => y.SampleArrayString).SetValidator(new SomeStringValidator());
         }
     }
 
@@ -37,7 +37,7 @@ namespace FluentValidationTJI.Validators
     {
         public SomeStringValidator()
         {
-            RuleFor(x => x.someString).NotEmpty().NotNull();
+            RuleFor(x => x.SampleString).NotEmpty().NotNull();
         }
     }
 }
