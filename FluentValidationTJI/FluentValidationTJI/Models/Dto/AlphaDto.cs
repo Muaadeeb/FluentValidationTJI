@@ -32,4 +32,8 @@ public class AlphaDto
     public bool? IsDynamic { get; set; }
 
     public DateTime? DynamicEffectiveDate { get; set; }
+
+    public SomeString[]? SomeString { get; set; }
 }
+
+public record SomeString(string someString);
